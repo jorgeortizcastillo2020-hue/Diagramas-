@@ -1,0 +1,55 @@
+-- 2-1-2 EJEMPLOS DE CONSULTAS
+-- -> CONSULTAS A BASES DE DATOS
+-- para obtener una ista de todas las bases de datos en el servidor, se puede utilizar la siguiente consulta.
+
+SELECT schema_name
+FROM information_schema.schemata;
+
+-- COMANDO SHOW
+-- UNA CONSULTA SIMILAR A LA ANTERIOR ES UTILIZANDO EL COMANDO "SHOW."
+SHOW DATABASES;
+
+-- Nota: la sentencia SHOW no esta disponible en todos los DBMS (database management system), es un comando 
+-- especifico del dialecto de MySQL y MariaDB, no un estandar universal.
+
+-- CONSULTA TABLAS 
+-- PARA LISTAR TODAS LAS TABLAS DENTRO DE LA BASE DE DATOS "MI_BASE_DE_DATOS"
+
+SELECT table_name
+FROM information_schema.tables 
+WHERE table_schema = "MI_BASE_DE_DATOS";
+
+-- COMO POR EJEMPLO, PARA UNA BASE DE DATOS LLAMADA "ESQUEMA" SERIA ASI...
+
+SELECT table_name 
+FROM information_schema.tables
+WHERE table_schema="esquema";
+
+-- El comando "SHOW" tambien ofrece una alternativa
+
+USE esquema;
+SHOW TABLES;
+
+-- CONSULTAS A columnas
+-- para obtener informacion detallada sobre las columnas de una tabla en particular,
+-- incluyendo su tipo de dato, si admiten valores nulos y sus valores por defecto,
+-- utilice una consulta similar a la siguiente.
+
+SELECT column_name,
+       data_type,
+       is_nullable,
+       column_default
+FROM   information_schema.columns 
+WHERE  table_schema="MI_BASE_DE_DATOS" AND 
+       table_name="MI_TABLA";
+
+
+-- Por ejemplo
+
+SELECT column_name,
+       data_type,
+       is_nullable,
+       column_default
+FROM   information_schema.columns 
+WHERE  table_schema="esquema" AND 
+       table_name="t_personal";
