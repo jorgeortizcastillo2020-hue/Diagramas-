@@ -53,3 +53,52 @@ SELECT column_name,
 FROM   information_schema.columns 
 WHERE  table_schema="esquema" AND 
        table_name="t_personal";
+
+
+-- DESCRIBE O DESC: UNA VISTA SIMILAR DE LA ESTRUCTURA DE UNA TABLAS
+
+DESCRIBE MI_BASE_DE_DATOS.MI_TABLA;
+
+-- POR EJEMPLO
+
+DESCRIBE esquema.t_personal;
+
+
+-- O 
+
+DESC esquema.t_personal;
+
+
+-- NOTA: La sentencia DESCRIBE (o DESC) No esta disponible en todos los DBMS (database management system),
+-- es un comando especifico del dialecto de MySQL Y MariaDB, NO un estandar universal
+
+
+-- CONSULTAS a Indices: LOS INDICES SON FUNDAMENTALES PARA EL RENDIMIENTO DE LAS CONSULTAS.
+-- PARA LISTAR TODOS LOS INDICES DE UNA TABLA, PUEDE CONSULTA LA VISTA "STATISTICS"-
+
+SELECT index_name, column_name, non_unique, seq_in_index
+FROM information_schema.statistics 
+WHERE table_schema="MI_BASE_DE_DATOS" AND table_name='MI_TABLA';
+
+-- Por ejemplo
+
+SELECT index_name,
+       column_name,
+       non_unique,
+       seq_in_index
+FROM  information_schema.statistics
+WHERE table_schema='esquema' AND
+      table_name='t_personal';
+
+
+-- El comando "SHOW INDEX" ofrece una salida similar
+
+SHOW INDEX
+FROM MI_TABLA
+FROM MI_BASE_DE_DATOS; 
+
+-- ejemplo
+
+SHOW INDEX
+FROM t_personal
+FROM esquema;

@@ -97,3 +97,63 @@ SELECT column_name,
 FROM   information_schema.columns 
 WHERE  table_schema="esquema" AND 
        table_name="t_personal";
+
+
+-- DESCRIBE O DESC: UNA VISTA SIMILAR DE LA ESTRUCTURA DE UNA TABLAS
+
+DESCRIBE MI_BASE_DE_DATOS.MI_TABLA;
+
+-- POR EJEMPLO
+
+DESCRIBE esqueta.t_personal;
+
+
+-- O 
+
+DESC esquema.t_personal;
+
+
+-- NOTA: La sentencia DESCRIBE (o DESC) No esta disponible en todos los DBMS (database management system),
+-- es un comando especifico del dialecto de MySQL Y MariaDB, NO un estandar universal
+
+-- CONSULTAS a Indices: LOS INDICES SON FUNDAMENTALES PARA EL RENDIMIENTO DE LAS CONSULTAS.
+-- PARA LISTAR TODOS LOS INDICES DE UNA TABLA, PUEDE CONSULTA LA VISTA "STATISTICS"-
+
+SELECT index_name, column_name, non_unique, seq_in_index
+FROM information_schema.statistics 
+WHERE table_schema="MI_BASE_DE_DATOS" AND table_name='MI_TABLA';
+
+index_name: representa el nombre del indice. cada indice tiene un nombre unico dentro de esa tabla.
+Por ejemplo, PRIMARY es el nombre del indice primario
+
+column_name: Indica el nombre de la columna que forma parte del inice. Un indice puede estar definido
+sobre una o más columnas.
+
+non_unique: indica si el indice permite valores duplicados. Un 0 significa que el indice es unico 
+(sin duplicados). Un 1 indica que el indice no es unico (permite duplicados)
+
+seq_in_index: Representa la posicion ordinal de la columna dentro del indice. Si un indice esta 
+definido sobre varias columnas, esta columna indica el orden en que las columnas aparecen en el indice.
+El primer campo en el indice tiene seq_in_index=1, el segundo tiene seq_in_index=2, y asi sucesivamente.
+
+-- Por ejemplo
+
+SELECT index_name,
+       column_name,
+       non_unique,
+       seq_in_index,
+FROM  information_schema.statistics
+WHERE table_schema='esquema' AND
+      table_name='t_personal'
+
+-- El comando "SHOW INDEX" ofrece una salida similar
+
+SHOW INDEX
+FROM MI_TABLA
+FROM MI_BASE_DE_DATOS; 
+
+-- ejemplo
+
+SHOW INDEX
+FROM t_personal
+FROM esquema;
