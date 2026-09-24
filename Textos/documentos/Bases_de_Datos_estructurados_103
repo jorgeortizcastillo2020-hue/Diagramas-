@@ -157,3 +157,31 @@ FROM MI_BASE_DE_DATOS;
 SHOW INDEX
 FROM t_personal
 FROM esquema;
+
+-- CONSULTAS A RESTRICCIONES (CONSTRAINTS) 
+
+-- Las restricciones aseguran la integridad de los datos. Para obtener informacion sobre la restricciones
+-- de una tabla, como claves primari, claves foraneas y otras, se pueden utilizar las siguientes
+-- consultas
+
+-- restricciones de tabla en general
+
+SELECT 
+    constraint_name,
+    constraint_type
+FROM 
+   information_schema.table_constraints 
+WHERE
+   table_schema='MI_BASE_DE_DATOS' AND
+   table_name='MI_TABLA';
+
+-- ejemplos
+
+SELECT 
+    constraint_name,
+    constraint_type
+FROM 
+   information_schema.table_constraints 
+WHERE
+   table_schema='esquema' AND
+   table_name='t_personal';   
