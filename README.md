@@ -1,0 +1,1 @@
+Este es un repositorio exclusivamente hecho para dejar apuntes, proyectos (individuales) O archivos que me sirvan a futuro. Ya sea en mi vida laboral, personal u estudiantil.
