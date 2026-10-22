@@ -132,3 +132,19 @@ FROM
 WHERE
    table_schema='esquema' AND
    table_name='t_personal';
+
+-- espacio porque falte a muchas clases que se rellanaran mas tarde
+
+
+
+
+
+
+
+--- fin del espacio
+
+
+
+-- ¿Que son los sinonimos en SQL?
+
+-- Lo
