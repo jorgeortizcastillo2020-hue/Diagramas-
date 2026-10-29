@@ -15,3 +15,27 @@ Formate de nombres: mostrar el nombre completo de los empleado en una sola colum
 y el apellido en minuscula, separados por un espacio. Además, eliminar los espacio extra de los nombre
 
 SELECT (CONCAT(UPPER(TRIM(nombre)), ' ', LOWER(TRIM(apellido)))) as nombre_completo FROM t_empleado;
+
+Creacion de un Codigo de Empleado : Genere un codigo de empleado que consista en el ID, la primera
+letra del nombre y la letra del apellido, todo en mayusculas.
+
+SELECT id, nombre, apellido, CONCAT(id, UPPER((SUBSTRING(TRIM(nombre), 1, 1))),
+ UPPER((SUBSTRING(TRIM(apellido), 1, 1))))
+AS codigo_empleado FROM t_empleado;
+
+IDEALMENTE:
+
+SELECT id, nombre, apellido,
+       UPPER(
+        CONCAT(
+            id,
+            SUBSTRING(TRIM(nombre), 1, 1),
+            SUBSTRING(TRIM(apellido), 1, 1)
+        )) AS codigo_empleado
+from t_empleado; 
+       
+
+
+SELECT producto,
+       CAST(precio AS DECIMAL(10,2)) * CAST(cantidad AS SIGNED) AS total 
+       FROM t_venta;

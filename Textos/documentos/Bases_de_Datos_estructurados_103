@@ -7,7 +7,10 @@
 
  ¿qué son las funciones de una sola fila?
 
- son funciones que acepta uno o mas 
+ son funciones que aceptan uno o mas argumentos de una sola fila de una tabla y retorna un unico valor
+ para esa misma fila. A diferencia de las funciones de agregado como COUNT() o SUM(), que operan 
+ sobre conjunto de filas para dar un unico resultado, Las funciones de una sola fila actuan sobre cada fila 
+ individualmente
 
 
  Tipos de funciuones de una sola
@@ -74,3 +77,64 @@ DATEDIFF     CALCULA LAD DIFERENCIA EN DIA ENTRE DOS FECHA SELECT DATEDIFF('2025
 
 CAST        convierte un valor a un tipo de dato diferente SELECT CAST('123' AS UNSIGNED);       123 (como numero)
 CAST        convierte un valor numero a una cadena         SELECT CAST(123 AS CHAR);
+
+
+
+
+
+
+
+
+3.2 - Funciones de Conversion y expresiones condicionales
+
+3.2.1 - Funciones de Conversion
+
+¿ Que son las funciones de conversion?
+
+
+Las funciones de conversion en sql son herramientas que permiten transformar datos de un tipo
+a otro. permiten convertir numeros a texto, texto a numeros, fechas a cadenas y muchas
+otras combinaciones necesarias para el manejo eficiente de datos.
+
+Elementos de funciones conversion
+las funciones de conversion tipicamente contienen  ...
+
+nombre d ela Funciones:   identifica la funciones (cast).
+expresion o valor:         el dato que sera convertido
+tipo de destino:          el tipo de dato al que se quiere convertir
+parametros opcionales:    como charset, longitud, precision.
+
+¿COMO SE USA?
+
+CAST()
+
+   CAST(expresion AS tipo_dato)
+
+
+tipos de datos mas comunes para conversion
+Char/varchar  : cadenas de texto
+date/datetime/time : fechas y horas
+DECIMAL : numeros decimales
+SIGNED /UNSIGNED: entero con o sin signo
+
+
+SIGNED O UNSIGNED: La diferencia principal es que SIGNED permite numeros positivos, negativos y ceros 
+mientras que UNSIGNED solo permite numeros positivos y cero. 
+UNSIGNED duplica el rango de valores positivos posibles para un tipo de datos, ya que reseva el bit de
+de signo para el valor en si.
+
+¿CUANDO SE USAN?
+
+cuando los tipos de datos no coinciden en comparaciones
+al realizar operaciones matematicas con datos almacenado como texto
+al formatear salidad de consultas
+al importar /exportar datos entre diferentes sistemas
+
+
+¿Donde se usan?
+
+En clausulas SELECT : para formato de resultados
+En clausulas WHERE  : Para comparaciones correctas
+En JOIN             : Oara unir tablas con tipos diferentes
+En ORDER BY         : Para ordenamiento correcto
+En INSERT/UPDATE    : Para asegurar tipos correctos
