@@ -39,3 +39,10 @@ from t_empleado;
 SELECT producto,
        CAST(precio AS DECIMAL(10,2)) * CAST(cantidad AS SIGNED) AS total 
        FROM t_venta;
+
+-- Mostrar todos los productos VENDIDOS EL SEGUNDO SEMESTRE DEL AÑO 202 (FILTRAR RANGO DE FECHAS)
+
+SELECT id, producto, precio, cantidad, fecha_venta FROM t_venta
+WHERE CAST(fecha_venta AS DATE)BETWEEN '2025-07-01' AND '2025-12-31';
+
+
