@@ -46,3 +46,27 @@ SELECT id, producto, precio, cantidad, fecha_venta FROM t_venta
 WHERE CAST(fecha_venta AS DATE)BETWEEN '2025-07-01' AND '2025-12-31';
 
 
+-- GENERE UN LISTADO DE PRODUCTOS, EN DONDE SE DESPLIQUE EL PRODUCTO Y SU PRECIO, ORDENADO NUMERICAMENTE DE MENOR A MAYOR POR PRECIO
+
+SELECT producto,precio 
+WHERE CAST(precio AS DECIMAL(10,2)) from t_venta
+ORDER BY precio DESC;
+
+
+-- Como deberia ser
+
+SELECT product, precio
+FROMT t_venta
+ORDER BY CAST(precio AS DECIMAL(10,2)) ASC;
+
+
+
+
+-- GENERE UNA SALIAD DE LA TABLA VENTAS CON EL PRODUCTO, EL PRECIO CON EL SIMBOLO "$", LA CANTIDAD Y LA FECHA EN FORMATO DD/MM/AAAA
+
+
+SELECT producto, 
+       CONCAT('$', CAST(precio AS DECIMAL(10,2) )) AS precio_formato,
+       CAST(cantidad as SIGNED) as cantidad,
+       date_format(CAST(fecha_venta AS DATE), '%d/%m/%Y') as Fecha_formato
+FROM t_venta;

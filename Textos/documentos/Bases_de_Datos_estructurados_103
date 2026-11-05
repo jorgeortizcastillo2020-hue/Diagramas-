@@ -138,3 +138,48 @@ En clausulas WHERE  : Para comparaciones correctas
 En JOIN             : Oara unir tablas con tipos diferentes
 En ORDER BY         : Para ordenamiento correcto
 En INSERT/UPDATE    : Para asegurar tipos correctos
+
+
+
+
+
+¿Que son las expresiones condicionales en SQL?
+
+Las expresiones condicionaes en SQL son sentencias que permiten evaluar condiciones y 
+retornar diferentes valorse según el resultado estas evaluaciones. Funcionan como una estructura del Tipo 
+"Si-entonces-Sino" Dentro de una consulta SQL
+
+SQL ofrece varias expresiones condicionales
+
+
+IF()
+CASE 
+IFNULL()
+NULLIF()
+COLAESCE()
+
+IF()
+   Sintaxis
+       IF(oncidionc, valor_si_es_verdadero, valor_si_es_falso)
+
+
+CASE
+    Tiene dos formas
+       Simple: Comprara una expresión con valores especificos
+       Buscada: Evalua multiples condiciones booleanas
+
+
+
+   Sintaxis
+        CASE 
+            WHEN CONDICION1 THEN RESULTADO1
+            WHEN CONDICION 2 THEN RESULTADO2
+
+            ELS
+
+
+IFNULL()
+   Sintaxis
+      IFNULL(EXPRESION,VALOR_SI_ES_NULL)
+
+      
