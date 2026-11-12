@@ -172,7 +172,7 @@ CASE
 
    Sintaxis
         CASE 
-            WHEN CONDICION1 THEN RESULTADO1
+            WHEN CONDICION 1 THEN RESULTADO1
             WHEN CONDICION 2 THEN RESULTADO2
 
             ELS
